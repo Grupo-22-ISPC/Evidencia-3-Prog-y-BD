@@ -12,5 +12,5 @@ Programa de consola para gestionar usuarios según su rol (admin/estándar).
 - _[Nombre del integrante 1]_
 - _[Nombre del integrante 2]_
 - _[Emilce Agustia Torres]_
-- _[Nombre del integrante 4]_
+- _[Luis Gastón Alonso]_
 - _[KevinCristoferLoreaTannfeld]_
