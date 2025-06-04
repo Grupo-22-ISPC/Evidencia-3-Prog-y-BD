@@ -9,7 +9,7 @@ Programa de consola para gestionar usuarios según su rol (admin/estándar).
 
 ## 👥  Integrantes del Equipo:
 
-- _[Nombre del integrante 1]_
+- _[Martin Vijarra]_
 - _[Nombre del integrante 2]_
 - _[Emilce Agustia Torres]_
 - _[Luis Gastón Alonso]_
