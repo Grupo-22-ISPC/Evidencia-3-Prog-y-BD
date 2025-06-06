@@ -5,7 +5,8 @@ while True:
     print("\n--- Bienvenido al Sistema de Gestión de Usuarios ---")
     print("1. Iniciar sesión")
     print("2. Registrar nuevo usuario")
-    print("3. Salir")
+    print("3. registros de usuarios")
+    print("4. Salir")
    
     opcion = input("Seleccione una opción: ")
 
@@ -14,6 +15,12 @@ while True:
     elif opcion == "2":
                 sistema.registrar_usuario()
     elif opcion == "3":
+                if not sistema.registros_usuarios():
+                    print("No hay usuarios registrados.")
+                else:
+                    for usuario in sistema.usuarios:
+                        print(f"Usuario: {usuario.nombre}, Rol: {usuario.rol}")
+    elif opcion == "4":
                 print("Saliendo del sistema. ¡Hasta luego!")
                 break
     else:
