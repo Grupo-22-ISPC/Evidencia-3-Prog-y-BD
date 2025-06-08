@@ -19,6 +19,16 @@ class GestorUsuarios:
         print(f"Usuario '{nombre_usuario}' registrado con éxito.")
         return usuario
     
+    def _existe_usuario(self, nombre_usuario):
+        return any(u.nombre_usuario == nombre_usuario for u in self.usuarios)
+
+    def _validar_contraseña(self, contraseña):
+        if len(contraseña) < 6:
+            return False
+        has_letter = any(c.isalpha() for c in contraseña)
+        has_number = any(c.isdigit() for c in contraseña)
+        return has_letter and has_number
+    
         # inisio de secion 
 class login(registro):
     def __init__(self, email_registrado, contraseña_registrada):
