@@ -4,5 +4,5 @@ def main():
     sistema = Sistema()
     sistema.mostrar_menu()
 
-if name == "main":
+if __name__ == "__main__":
     main()
