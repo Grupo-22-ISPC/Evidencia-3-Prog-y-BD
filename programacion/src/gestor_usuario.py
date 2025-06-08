@@ -38,6 +38,22 @@ class GestorUsuarios:
         print("Nombre de usuario o contraseña incorrectos.")
         return None
             
+    def listar_usuarios(self):
+        if not self.usuarios:
+            print("No hay usuarios registrados.")
+            return
+        for usuario in self.usuarios:
+            print(usuario)
+
+    def cambiar_rol(self, nombre_usuario, nuevo_rol):
+        for usuario in self.usuarios:
+            if usuario.nombre_usuario == nombre_usuario:
+                usuario.rol = nuevo_rol
+                print(f"Rol de '{nombre_usuario}' cambiado a '{nuevo_rol}'.")
+                return True
+        print(f"No se encontró usuario con nombre '{nombre_usuario}'.")
+        return False
+    
             # visualizacion de informacion del usuario
 class VisualizacionDeInformacionDelUsuario(registro):
     def __init__(self, usuario):
