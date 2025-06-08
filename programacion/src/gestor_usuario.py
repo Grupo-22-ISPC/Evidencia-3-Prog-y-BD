@@ -1,20 +1,24 @@
 # registro del usuario 
-class registro:
-    def __init__(self, nombre, apellido, edad, email, contraseña):
-        self.nombre = nombre
-        self.apellido = apellido
-        self.edad = edad
-        self.email = email
-        self.contraseña = contraseña
+from usuario import Usuario
 
-nombre = input("Ingrese su nombre: ")
-apellido = input("Ingrese su apellido: ")
-edad = int(input("Ingrese su edad: ")) 
-email = input("Ingrese su email: ")
-contraseña = input("Ingrese su contraseña: ")
-persona = registro(nombre, apellido, edad, email, contraseña)
-print(f"sus datos an sido cargados correctamente")
-       
+class GestorUsuarios:
+    def __init__(self):
+        self.usuarios = []
+        self.next_id = 1  # Para simular autoincremento
+
+    def registrar_usuario(self, nombre_usuario, contraseña, datos_personales, rol):
+        if self._existe_usuario(nombre_usuario):
+            print(f"El usuario '{nombre_usuario}' ya existe.")
+            return None
+        if not self._validar_contraseña(contraseña):
+            print("La contraseña debe tener al menos 6 caracteres y contener letras y números.")
+            return None
+        usuario = Usuario(self.next_id, nombre_usuario, contraseña, datos_personales, rol)
+        self.usuarios.append(usuario)
+        self.next_id += 1
+        print(f"Usuario '{nombre_usuario}' registrado con éxito.")
+        return usuario
+    
         # inisio de secion 
 class login(registro):
     def __init__(self, email_registrado, contraseña_registrada):
