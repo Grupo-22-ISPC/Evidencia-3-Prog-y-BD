@@ -30,21 +30,13 @@ class GestorUsuarios:
         return has_letter and has_number
     
         # inisio de secion 
-class login(registro):
-    def __init__(self, email_registrado, contraseña_registrada):
-        self.email_registrado = email_registrado
-        self.contraseña_registrada = contraseña_registrada
-
-    def iniciar_sesion(self):
-        email1 = input("Ingrese su email: ")
-        contraseña1 = input("Ingrese su contraseña: ")
-        if email1 == self.email_registrado and contraseña1 == self.contraseña_registrada:
-            print("Bienvenido al sistema")
-        else:
-            print("Email o contraseña incorrectos, intente nuevamente")
-
-inicio = login(email, contraseña)
-inicio.iniciar_sesion()
+    def iniciar_sesion(self, nombre_usuario, contraseña):
+        for usuario in self.usuarios:
+            if usuario.nombre_usuario == nombre_usuario and usuario.contraseña == contraseña:
+                print(f"Bienvenido, {usuario.nombre_usuario}!")
+                return usuario
+        print("Nombre de usuario o contraseña incorrectos.")
+        return None
             
             # visualizacion de informacion del usuario
 class VisualizacionDeInformacionDelUsuario(registro):
