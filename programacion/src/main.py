@@ -1,3 +1,8 @@
+from sistema import Sistema
 
-if __name__ == "__main__":
-    main_consola()
+def main():
+    sistema = Sistema()
+    sistema.mostrar_menu()
+
+if name == "main":
+    main()
