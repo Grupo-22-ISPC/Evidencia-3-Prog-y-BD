@@ -1,3 +1,4 @@
+from gestor_usuarios import GestorUsuarios
 
 class Sistema:
     def __init__(self): 
@@ -28,7 +29,7 @@ class Sistema:
                     self._menu_administrador()
                 else:
                     self._menu_usuario_estandar()
-                    
+
     def _registrar(self):
         print("\n--- Registro de Usuario ---")
         nombre = input("Ingrese nombre de usuario: ")
@@ -47,3 +48,43 @@ class Sistema:
         usuario = self.gestor.iniciar_sesion(nombre, contraseña)
         if usuario:
             self.usuario_actual = usuario
+            
+    def _menu_administrador(self):
+        print(f"\n--- Menú Administrador ({self.usuario_actual.nombre_usuario}) ---")
+        print("1. Listar usuarios")
+        print("2. Cambiar rol de usuario")
+        print("3. Eliminar usuario")
+        print("4. Cerrar sesión")
+        opcion = input("Seleccione una opción: ")
+
+        if opcion == "1":
+            self.gestor.listar_usuarios()
+        elif opcion == "2":
+            nombre = input("Ingrese el nombre del usuario a modificar: ")
+            nuevo_rol = input("Ingrese el nuevo rol (administrador/usuario): ").lower()
+            if nuevo_rol not in ["administrador", "usuario"]:
+                print("Rol inválido.")
+            else:
+                self.gestor.cambiar_rol(nombre, nuevo_rol)
+        elif opcion == "3":
+            nombre = input("Ingrese el nombre del usuario a eliminar: ")
+            self.gestor.eliminar_usuario(nombre)
+        elif opcion == "4":
+            print("Cerrando sesión...")
+            self.usuario_actual = None
+        else:
+            print("Opción inválida.")
+
+    def _menu_usuario_estandar(self):
+        print(f"\n--- Menú Usuario ({self.usuario_actual.nombre_usuario}) ---")
+        print("1. Ver mis datos")
+        print("2. Cerrar sesión")
+        opcion = input("Seleccione una opción: ")
+
+        if opcion == "1":
+            print(self.usuario_actual)
+        elif opcion == "2":
+            print("Cerrando sesión...")
+            self.usuario_actual = None
+        else:
+            print("Opción inválida.")
