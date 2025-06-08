@@ -29,3 +29,21 @@ class Sistema:
                 else:
                     self._menu_usuario_estandar()
                     
+    def _registrar(self):
+        print("\n--- Registro de Usuario ---")
+        nombre = input("Ingrese nombre de usuario: ")
+        contraseña = input("Ingrese contraseña: ")
+        datos_personales = input("Ingrese sus datos personales (ej: Nombre Completo, email): ")
+        rol = input("Ingrese rol (administrador/usuario): ").lower()
+        if rol not in ["administrador", "usuario"]:
+            print("Rol inválido. Se asignará 'usuario' por defecto.")
+            rol = "usuario"
+        self.gestor.registrar_usuario(nombre, contraseña, datos_personales, rol)
+
+    def _iniciar_sesion(self):
+        print("\n--- Inicio de Sesión ---")
+        nombre = input("Nombre de usuario: ")
+        contraseña = input("Contraseña: ")
+        usuario = self.gestor.iniciar_sesion(nombre, contraseña)
+        if usuario:
+            self.usuario_actual = usuario
