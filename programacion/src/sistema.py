@@ -1,4 +1,4 @@
-from gestor_usuarios import GestorUsuarios
+from gestor_usuario import GestorUsuarios
 
 class Sistema:
     def __init__(self): 
